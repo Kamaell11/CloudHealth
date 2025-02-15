@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+azure-cosmos
+pydantic
+pydantic[email]
+email-validator
+azure-cosmos
+python-dotenv
+

@@ -48,3 +48,22 @@ Complete project documentation, including architecture descriptions, diagrams, a
 ## Presentation
 
 The project will be presented during the lab session for final grading.
+
+## Project structure
+```
+cloudhealth/
+├── app/
+│   ├── main.py          
+│   ├── database.py      
+│   ├── models.py        
+│   ├── schemas.py       
+│   ├── crud.py          
+│   ├── routes/
+│   │   ├── users.py     
+│   │   ├── health.py     
+│   │   ├── activities.py 
+├── Dockerfile          
+├── requirements.txt    
+├── .env                 
+├── .gitignore           
+```
