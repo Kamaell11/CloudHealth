@@ -56,3 +56,9 @@ jobs:
       run: |
         kubectl apply -f deployment.yaml --validate=false
         kubectl set image deployment/cloudhealth-app cloudhealth-app=your-docker-image:latest
+    - name: Debug Kubernetes cluster info
+      run: |
+        kubectl config view
+        kubectl cluster-info
+        kubectl get nodes
+        kubectl get pods
