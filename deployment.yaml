@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudhealth-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloudhealth
+  template:
+    metadata:
+      labels:
+        app: cloudhealth
+    spec:
+      containers:
+        - name: cloudhealth
+          image: cloudhealthacr.azurecr.io/cloudhealth:v1
+          ports:
+            - containerPort: 8000
+      imagePullSecrets:
+        - name: acr-auth
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cloudhealth-service
+spec:
+  selector:
+    app: cloudhealth
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000
+  type: LoadBalancer
