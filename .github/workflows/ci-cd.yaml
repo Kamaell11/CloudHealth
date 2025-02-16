@@ -39,6 +39,10 @@ jobs:
     - name: Check out repository
       uses: actions/checkout@v2
 
+    - name: Set up Kubeconfig
+      run: |
+        echo "${{ secrets.KUBE_CONFIG }}" > ~/.kube/config
+
     - name: Deploy to Kubernetes
       run: |
         kubectl apply -f deployment.yaml
