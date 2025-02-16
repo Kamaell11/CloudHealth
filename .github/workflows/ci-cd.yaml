@@ -3,10 +3,10 @@ name: CI/CD for CloudHealth App
 on:
   push:
     branches:
-      - main  
+      - main
   pull_request:
     branches:
-      - main  
+      - main
 
 jobs:
   build:
@@ -43,6 +43,14 @@ jobs:
       run: |
         mkdir -p ~/.kube
         echo "${{ secrets.KUBE_CONFIG }}" > ~/.kube/config
+
+    - name: Display Kubeconfig
+      run: |
+        cat ~/.kube/config
+
+    - name: Check Kubernetes cluster info
+      run: |
+        kubectl cluster-info
 
     - name: Deploy to Kubernetes
       run: |
