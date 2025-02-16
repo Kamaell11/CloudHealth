@@ -42,9 +42,8 @@ jobs:
     - name: Set up Kubeconfig
       run: |
         mkdir -p ~/.kube
-        echo "${{ secrets.KUBE_CONFIG }}" > ~/.kube/config
-        kubectl config view  # Sprawdzanie konfiguracji
-        kubectl cluster-info  # Sprawdzanie dostępności klastra
+        echo "${{ secrets.KUBE_CONFIG }}" | base64 --decode > ~/.kube/config
+        export KUBECONFIG=~/.kube/config
 
     - name: Display Kubeconfig
       run: |
