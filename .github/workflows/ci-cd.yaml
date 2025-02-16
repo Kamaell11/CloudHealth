@@ -43,8 +43,8 @@ jobs:
       run: |
         mkdir -p ~/.kube
         echo "${{ secrets.KUBE_CONFIG }}" > ~/.kube/config
-        kubectl config view  
-        kubectl cluster-info  
+        kubectl config view  # Sprawdzanie konfiguracji
+        kubectl cluster-info  # Sprawdzanie dostępności klastra
 
     - name: Display Kubeconfig
       run: |
