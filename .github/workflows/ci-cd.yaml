@@ -41,6 +41,7 @@ jobs:
 
     - name: Set up Kubeconfig
       run: |
+        mkdir -p ~/.kube
         echo "${{ secrets.KUBE_CONFIG }}" > ~/.kube/config
 
     - name: Deploy to Kubernetes
