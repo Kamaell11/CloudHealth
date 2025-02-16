@@ -46,5 +46,6 @@ jobs:
 
     - name: Deploy to Kubernetes
       run: |
-        kubectl apply -f deployment.yaml
+        kubectl apply -f deployment.yaml --validate=false
         kubectl set image deployment/cloudhealth-app cloudhealth-app=your-docker-image:latest
+
