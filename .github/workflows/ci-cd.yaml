@@ -43,6 +43,8 @@ jobs:
       run: |
         mkdir -p ~/.kube
         echo "${{ secrets.KUBE_CONFIG }}" > ~/.kube/config
+        kubectl config view  
+        kubectl cluster-info  
 
     - name: Display Kubeconfig
       run: |
